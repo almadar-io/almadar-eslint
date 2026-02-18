@@ -1,0 +1,15 @@
+{
+  "name": "@almadar/eslint-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Custom ESLint rules for Almadar component architecture",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "rules/",
+    "utils/"
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  }
+}
