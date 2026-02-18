@@ -1,6 +1,6 @@
 "use strict";
 
-const { isAtomOrMolecule, isStoryFile } = require("../utils/helpers");
+const { isTemplateFile, isStoryFile } = require("../utils/helpers");
 
 /**
  * Callback props that have declarative equivalents in @almadar/ui.
@@ -30,8 +30,8 @@ module.exports = {
   create(context) {
     const filename = context.filename;
 
-    // Atoms/molecules implement the bridge — they need both patterns
-    if (isAtomOrMolecule(filename)) return {};
+    // Only enforce in templates — organisms/atoms/molecules legitimately use onClick for local state
+    if (!isTemplateFile(filename)) return {};
 
     // Stories use callbacks for testing
     if (isStoryFile(filename)) return {};
