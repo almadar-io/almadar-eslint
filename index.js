@@ -15,6 +15,7 @@ const requireClosedCircuitProps = require("./rules/require-closed-circuit-props"
 const requireStories = require("./rules/require-stories");
 const eventNamingConvention = require("./rules/event-naming-convention");
 const templateExtendsBase = require("./rules/template-extends-base");
+const requireTranslate = require("./rules/require-translate");
 
 const plugin = {
   meta: {
@@ -38,6 +39,7 @@ const plugin = {
     "require-stories": requireStories,
     "event-naming-convention": eventNamingConvention,
     "template-extends-base": templateExtendsBase,
+    "require-translate": requireTranslate,
   },
 
   configs: {},
@@ -67,6 +69,7 @@ plugin.configs.recommended = {
     "almadar/require-stories": "warn",
     "almadar/event-naming-convention": "warn",
     "almadar/template-extends-base": "warn",
+    "almadar/require-translate": "warn",
   },
 };
 
