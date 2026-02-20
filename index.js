@@ -16,6 +16,11 @@ const requireStories = require("./rules/require-stories");
 const eventNamingConvention = require("./rules/event-naming-convention");
 const templateExtendsBase = require("./rules/template-extends-base");
 const requireTranslate = require("./rules/require-translate");
+const organismNoDataState = require("./rules/organism-no-data-state");
+const organismNoAutoFetch = require("./rules/organism-no-auto-fetch");
+const organismNoCallbackProps = require("./rules/organism-no-callback-props");
+const organismExtendsEntityDisplay = require("./rules/organism-extends-entity-display");
+const organismRenderingStateOnly = require("./rules/organism-rendering-state-only");
 
 const plugin = {
   meta: {
@@ -40,6 +45,11 @@ const plugin = {
     "event-naming-convention": eventNamingConvention,
     "template-extends-base": templateExtendsBase,
     "require-translate": requireTranslate,
+    "organism-no-data-state": organismNoDataState,
+    "organism-no-auto-fetch": organismNoAutoFetch,
+    "organism-no-callback-props": organismNoCallbackProps,
+    "organism-extends-entity-display": organismExtendsEntityDisplay,
+    "organism-rendering-state-only": organismRenderingStateOnly,
   },
 
   configs: {},
@@ -70,6 +80,13 @@ plugin.configs.recommended = {
     "almadar/event-naming-convention": "warn",
     "almadar/template-extends-base": "warn",
     "almadar/require-translate": "warn",
+
+    // Organism rules — enforce dumb organism pattern
+    "almadar/organism-no-data-state": "error",
+    "almadar/organism-no-auto-fetch": "error",
+    "almadar/organism-no-callback-props": "error",
+    "almadar/organism-extends-entity-display": "error",
+    "almadar/organism-rendering-state-only": "warn",
   },
 };
 
@@ -95,6 +112,20 @@ plugin.configs.templates = {
     "almadar/template-no-iteration": "error",
     "almadar/template-serializable-props": "error",
     "almadar/template-extends-base": "error",
+  },
+};
+
+// Organisms-only config — enforce dumb organism pattern
+plugin.configs.organisms = {
+  plugins: { almadar: plugin },
+  rules: {
+    "almadar/organism-no-data-state": "error",
+    "almadar/organism-no-auto-fetch": "error",
+    "almadar/organism-no-callback-props": "error",
+    "almadar/organism-extends-entity-display": "error",
+    "almadar/organism-rendering-state-only": "warn",
+    "almadar/require-event-bus": "error",
+    "almadar/require-closed-circuit-props": "error",
   },
 };
 

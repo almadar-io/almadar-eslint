@@ -76,6 +76,7 @@ const WARNED_TEMPLATE_HOOKS = new Set([
 const GENERATED_PATHS = [
   /projects\/[^/]+\/app\//,
   /orbital-rust\/test-output\//,
+  /packages\/almadar-patterns\/src\//,
 ];
 
 /**
@@ -85,13 +86,31 @@ const GENERATED_COMMIT_PATHS = [
   "projects/*/app/",
   "orbital-rust/test-output/",
   "apps/builder/packages/client/design-system/",
+  "packages/almadar-patterns/src/",
 ];
+
+/**
+ * Check if a file is an entity-aware organism (DataTable, List, Table, etc.).
+ */
+function isEntityAwareOrganism(filename) {
+  if (!isOrganism(filename)) return false;
+  return /\/(DataTable|List|Table|CardGrid|DetailPanel|MasterDetail)\.(tsx|jsx)$/.test(filename);
+}
+
+/**
+ * Check if a file is inside an organisms/game/ directory.
+ */
+function isGameOrganism(filename) {
+  return /\/organisms\/game\//.test(filename);
+}
 
 module.exports = {
   isTemplateFile,
   isAtomOrMolecule,
   isOrganism,
   isStoryFile,
+  isEntityAwareOrganism,
+  isGameOrganism,
   BLOCKED_HTML_ELEMENTS,
   ALLOWED_HTML_ELEMENTS,
   BANNED_TEMPLATE_HOOKS,
