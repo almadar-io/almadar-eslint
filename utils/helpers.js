@@ -104,6 +104,18 @@ function isGameOrganism(filename) {
   return /\/organisms\/game\//.test(filename);
 }
 
+/**
+ * Check if a file is a service package source file.
+ * Matches packages/almadar-{name}/src/ files, excludes tests and stories.
+ */
+function isServiceFile(filename) {
+  if (!/packages\/almadar-[^/]+\/src\//.test(filename)) return false;
+  if (/\.(test|spec|stories)\.(ts|tsx|js|jsx)$/.test(filename)) return false;
+  if (/\/__tests__\//.test(filename)) return false;
+  if (/\/test\//.test(filename)) return false;
+  return true;
+}
+
 module.exports = {
   isTemplateFile,
   isAtomOrMolecule,
@@ -111,6 +123,7 @@ module.exports = {
   isStoryFile,
   isEntityAwareOrganism,
   isGameOrganism,
+  isServiceFile,
   BLOCKED_HTML_ELEMENTS,
   ALLOWED_HTML_ELEMENTS,
   BANNED_TEMPLATE_HOOKS,

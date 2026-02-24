@@ -22,10 +22,19 @@ const organismNoCallbackProps = require("./rules/organism-no-callback-props");
 const organismExtendsEntityDisplay = require("./rules/organism-extends-entity-display");
 const organismRenderingStateOnly = require("./rules/organism-rendering-state-only");
 
+// Service rules
+const serviceLazySingleton = require("./rules/service-lazy-singleton");
+const serviceSingletonResettable = require("./rules/service-singleton-resettable");
+const serviceNoModuleSideEffects = require("./rules/service-no-module-side-effects");
+const serviceEventbusSingleton = require("./rules/service-eventbus-singleton");
+const serviceEventNameScreaming = require("./rules/service-event-name-screaming");
+const serviceIntegrationExtendsBase = require("./rules/service-integration-extends-base");
+const serviceStoreIsolation = require("./rules/service-store-isolation");
+
 const plugin = {
   meta: {
     name: "@almadar/eslint-plugin",
-    version: "0.1.0",
+    version: "2.1.0",
   },
 
   rules: {
@@ -50,6 +59,15 @@ const plugin = {
     "organism-no-callback-props": organismNoCallbackProps,
     "organism-extends-entity-display": organismExtendsEntityDisplay,
     "organism-rendering-state-only": organismRenderingStateOnly,
+
+    // Service rules
+    "service-lazy-singleton": serviceLazySingleton,
+    "service-singleton-resettable": serviceSingletonResettable,
+    "service-no-module-side-effects": serviceNoModuleSideEffects,
+    "service-eventbus-singleton": serviceEventbusSingleton,
+    "service-event-name-screaming": serviceEventNameScreaming,
+    "service-integration-extends-base": serviceIntegrationExtendsBase,
+    "service-store-isolation": serviceStoreIsolation,
   },
 
   configs: {},
@@ -126,6 +144,34 @@ plugin.configs.organisms = {
     "almadar/organism-rendering-state-only": "warn",
     "almadar/require-event-bus": "error",
     "almadar/require-closed-circuit-props": "error",
+  },
+};
+
+// Services config — service package structure rules
+plugin.configs.services = {
+  plugins: { almadar: plugin },
+  rules: {
+    "almadar/service-lazy-singleton": "error",
+    "almadar/service-singleton-resettable": "error",
+    "almadar/service-no-module-side-effects": "error",
+    "almadar/service-eventbus-singleton": "error",
+    "almadar/service-event-name-screaming": "error",
+    "almadar/service-integration-extends-base": "error",
+    "almadar/service-store-isolation": "error",
+  },
+};
+
+// Services strict config — all service rules as error (same for now, diverges as warn-level rules are added)
+plugin.configs["services-strict"] = {
+  plugins: { almadar: plugin },
+  rules: {
+    "almadar/service-lazy-singleton": "error",
+    "almadar/service-singleton-resettable": "error",
+    "almadar/service-no-module-side-effects": "error",
+    "almadar/service-eventbus-singleton": "error",
+    "almadar/service-event-name-screaming": "error",
+    "almadar/service-integration-extends-base": "error",
+    "almadar/service-store-isolation": "error",
   },
 };
 
