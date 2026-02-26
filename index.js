@@ -9,6 +9,7 @@ const templateSerializableProps = require("./rules/template-serializable-props")
 const noTypeProp = require("./rules/no-type-prop");
 const noAsAny = require("./rules/no-as-any");
 const noImportGenerated = require("./rules/no-import-generated");
+const noUseNavigate = require("./rules/no-use-navigate");
 const requireEventBus = require("./rules/require-event-bus");
 const requireDisplayName = require("./rules/require-display-name");
 const requireClosedCircuitProps = require("./rules/require-closed-circuit-props");
@@ -47,6 +48,7 @@ const plugin = {
     "no-type-prop": noTypeProp,
     "no-as-any": noAsAny,
     "no-import-generated": noImportGenerated,
+    "no-use-navigate": noUseNavigate,
     "require-event-bus": requireEventBus,
     "require-display-name": requireDisplayName,
     "require-closed-circuit-props": requireClosedCircuitProps,
@@ -89,6 +91,7 @@ plugin.configs.recommended = {
     "almadar/no-type-prop": "error",
     "almadar/no-as-any": "error",
     "almadar/no-import-generated": "error",
+    "almadar/no-use-navigate": "error",
 
     // Warn-level — conventions that should be followed
     "almadar/require-event-bus": "warn",
