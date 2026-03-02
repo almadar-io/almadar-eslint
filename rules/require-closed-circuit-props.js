@@ -3,7 +3,7 @@
 const { isOrganism } = require("../utils/helpers");
 
 const REQUIRED_PROPS = ["className"];
-const RECOMMENDED_PROPS = ["isLoading", "error", "entity", "data", "sortBy", "sortDirection", "page", "pageSize", "totalCount", "searchValue"];
+const RECOMMENDED_PROPS = ["isLoading", "error", "entity", "sortBy", "sortDirection", "page", "pageSize", "totalCount", "searchValue"];
 
 module.exports = {
   meta: {
