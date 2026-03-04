@@ -51,7 +51,7 @@ module.exports = {
             continue;
           }
 
-          for (const [name, version] of Object.entries(deps)) {
+          for (const [, version] of Object.entries(deps)) {
             // Check for workspace:*
             if (version === "workspace:*" || version === "workspace:") {
               context.report({

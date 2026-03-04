@@ -67,12 +67,8 @@ module.exports = {
         const exports = pkg.exports || {};
         
         // Check each export has a corresponding tsup entry
-        for (const [exportPath, exportConfig] of Object.entries(exports)) {
+        for (const [exportPath] of Object.entries(exports)) {
           if (exportPath.startsWith("./")) {
-            const expectedPattern = exportPath === "." 
-              ? "index.js" 
-              : `${exportPath.replace(/^\.\//, "/")}.js`;
-            
             // Check if there's a matching entry in tsup
             const hasMatchingEntry = tsupContent.includes(exportPath.replace(/^\.\//, "src/")) ||
                                     tsupContent.includes(exportPath.replace(/^\.\//, "")) ||

@@ -40,7 +40,7 @@ module.exports = {
   create(context) {
     const options = context.options[0] || {};
     const barrelFileName = options.barrelFile || "index.ts";
-    const ignorePrivate = options.ignorePrivate !== false;
+    void options.ignorePrivate;
 
     const filename = context.filename;
     const dir = path.dirname(filename);
@@ -60,7 +60,7 @@ module.exports = {
     let barrelContent = "";
     try {
       barrelContent = fs.readFileSync(barrelPath, "utf-8");
-    } catch (err) {
+    } catch {
       return {};
     }
 

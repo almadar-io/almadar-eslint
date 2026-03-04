@@ -27,17 +27,11 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Typecheck
-        run: pnpm typecheck
-
-      - name: Build
-        run: pnpm build
-
       - name: Test
         run: pnpm test --if-present
 
       - name: Lint
-        run: pnpm exec eslint --no-warn-ignored --max-warnings 0 src/
+        run: pnpm exec eslint --no-warn-ignored --max-warnings 0 index.js rules/ utils/
 
   validate-service:
     runs-on: ubuntu-latest

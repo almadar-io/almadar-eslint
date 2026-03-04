@@ -1,6 +1,6 @@
 {
   "name": "@almadar/eslint-plugin",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "private": false,
   "description": "Custom ESLint rules for Almadar component architecture",
   "main": "index.js",
@@ -12,6 +12,9 @@
   "peerDependencies": {
     "eslint": ">=8.0.0"
   },
+  "devDependencies": {
+    "eslint": "10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/almadar-io/almadar-eslint.git"
@@ -20,6 +23,7 @@
     "access": "public"
   },
   "scripts": {
+    "lint": "eslint index.js rules/ utils/",
     "prepare": "git config core.hooksPath .githooks"
   }
 }

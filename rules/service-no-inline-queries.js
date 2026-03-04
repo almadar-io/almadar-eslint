@@ -60,11 +60,11 @@ module.exports = {
       },
 
       // Check for Express route handler patterns
-      "CallExpression[callee.object.name='app'][callee.property.name=/^(get|post|put|delete|patch)$/]"(node) {
+      "CallExpression[callee.object.name='app'][callee.property.name=/^(get|post|put|delete|patch)$/]"(_node) {
         hasRouteHandlerPattern = true;
       },
 
-      "CallExpression[callee.object.name='router'][callee.property.name=/^(get|post|put|delete|patch)$/]"(node) {
+      "CallExpression[callee.object.name='router'][callee.property.name=/^(get|post|put|delete|patch)$/]"(_node) {
         hasRouteHandlerPattern = true;
       },
 

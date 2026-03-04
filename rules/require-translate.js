@@ -1,6 +1,6 @@
 "use strict";
 
-const { isStoryFile, isTemplateFile, isAtomOrMolecule, isOrganism } = require("../utils/helpers");
+const { isStoryFile, isTemplateFile, isOrganism } = require("../utils/helpers");
 
 /**
  * Check if a file is inside a molecules/ directory.
