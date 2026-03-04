@@ -18,5 +18,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "prepare": "git config core.hooksPath .githooks"
   }
 }
