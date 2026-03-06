@@ -23,6 +23,7 @@ const organismNoAutoFetch = require("./rules/organism-no-auto-fetch");
 const organismNoCallbackProps = require("./rules/organism-no-callback-props");
 const organismExtendsEntityDisplay = require("./rules/organism-extends-entity-display");
 const organismRenderingStateOnly = require("./rules/organism-rendering-state-only");
+const organismRequireEntityRow = require("./rules/organism-require-entity-row");
 
 // Service rules - Phase 1-3 (Implemented)
 const serviceLazySingleton = require("./rules/service-lazy-singleton");
@@ -73,6 +74,7 @@ const plugin = {
     "organism-no-callback-props": organismNoCallbackProps,
     "organism-extends-entity-display": organismExtendsEntityDisplay,
     "organism-rendering-state-only": organismRenderingStateOnly,
+    "organism-require-entity-row": organismRequireEntityRow,
 
     // Service rules - Phase 1-3
     "service-lazy-singleton": serviceLazySingleton,
@@ -131,6 +133,7 @@ plugin.configs.recommended = {
     "almadar/organism-no-callback-props": "error",
     "almadar/organism-extends-entity-display": "error",
     "almadar/organism-rendering-state-only": "warn",
+    "almadar/organism-require-entity-row": "error",
   },
 };
 
@@ -170,6 +173,7 @@ plugin.configs.organisms = {
     "almadar/organism-rendering-state-only": "warn",
     "almadar/require-event-bus": "error",
     "almadar/require-closed-circuit-props": "error",
+    "almadar/organism-require-entity-row": "error",
   },
 };
 
