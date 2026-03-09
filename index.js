@@ -25,6 +25,9 @@ const organismExtendsEntityDisplay = require("./rules/organism-extends-entity-di
 const organismRenderingStateOnly = require("./rules/organism-rendering-state-only");
 const organismRequireEntityRow = require("./rules/organism-require-entity-row");
 
+// Atom/molecule rules
+const atomMoleculeNoEntityProp = require("./rules/atom-molecule-no-entity-prop");
+
 // Service rules - Phase 1-3 (Implemented)
 const serviceLazySingleton = require("./rules/service-lazy-singleton");
 const serviceSingletonResettable = require("./rules/service-singleton-resettable");
@@ -76,6 +79,9 @@ const plugin = {
     "organism-rendering-state-only": organismRenderingStateOnly,
     "organism-require-entity-row": organismRequireEntityRow,
 
+    // Atom/molecule rules
+    "atom-molecule-no-entity-prop": atomMoleculeNoEntityProp,
+
     // Service rules - Phase 1-3
     "service-lazy-singleton": serviceLazySingleton,
     "service-singleton-resettable": serviceSingletonResettable,
@@ -117,6 +123,7 @@ plugin.configs.recommended = {
     "almadar/no-entity-string-type": "error",
     "almadar/no-import-generated": "error",
     "almadar/no-use-navigate": "error",
+    "almadar/atom-molecule-no-entity-prop": "error",
 
     // Warn-level — conventions that should be followed
     "almadar/require-event-bus": "warn",
