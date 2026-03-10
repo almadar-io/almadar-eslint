@@ -28,6 +28,9 @@ const organismRequireEntityRow = require("./rules/organism-require-entity-row");
 // Atom/molecule rules
 const atomMoleculeNoEntityProp = require("./rules/atom-molecule-no-entity-prop");
 
+// Behavior rules
+const behaviorNoOrganisms = require("./rules/behavior-no-organisms");
+
 // Service rules - Phase 1-3 (Implemented)
 const serviceLazySingleton = require("./rules/service-lazy-singleton");
 const serviceSingletonResettable = require("./rules/service-singleton-resettable");
@@ -82,6 +85,9 @@ const plugin = {
     // Atom/molecule rules
     "atom-molecule-no-entity-prop": atomMoleculeNoEntityProp,
 
+    // Behavior rules
+    "behavior-no-organisms": behaviorNoOrganisms,
+
     // Service rules - Phase 1-3
     "service-lazy-singleton": serviceLazySingleton,
     "service-singleton-resettable": serviceSingletonResettable,
@@ -133,6 +139,9 @@ plugin.configs.recommended = {
     "almadar/event-naming-convention": "warn",
     "almadar/template-extends-base": "warn",
     "almadar/require-translate": "warn",
+
+    // Behavior rules — restrict to atoms/molecules only
+    "almadar/behavior-no-organisms": "error",
 
     // Organism rules — enforce dumb organism pattern
     "almadar/organism-no-data-state": "error",
@@ -227,6 +236,19 @@ plugin.configs["services-strict"] = {
     // Additional
     "almadar/service-use-eventbus": "error",
     "almadar/service-no-inline-queries": "error",
+  },
+};
+
+// Behaviors config — lint .orb behavior schemas for pattern tier compliance
+// Requires: jsonc-eslint-parser (pnpm add -D jsonc-eslint-parser)
+// Usage in eslint.config.js: { files: ["**/*.orb"], ...almadar.configs.behaviors }
+plugin.configs.behaviors = {
+  plugins: { almadar: plugin },
+  languageOptions: {
+    parser: require("jsonc-eslint-parser"),
+  },
+  rules: {
+    "almadar/behavior-no-organisms": "error",
   },
 };
 

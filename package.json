@@ -1,6 +1,6 @@
 {
   "name": "@almadar/eslint-plugin",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "private": false,
   "description": "Custom ESLint rules for Almadar component architecture",
   "main": "index.js",
@@ -25,5 +25,8 @@
   "scripts": {
     "lint": "eslint index.js rules/ utils/",
     "prepare": "git config core.hooksPath .githooks"
+  },
+  "dependencies": {
+    "jsonc-eslint-parser": "3.1.0"
   }
 }
