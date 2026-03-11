@@ -5,8 +5,10 @@
  *
  * Behaviors (.orb files in behaviors/) must only use atom and molecule patterns.
  * Organisms and templates are forbidden, with exceptions for:
- *   - Game-related patterns (category "game" in component-mapping.json)
  *   - form / form-section (explicitly allowed by convention)
+ *
+ * All game components (canvas renderers, HUDs, menus, logs, panels) have been
+ * moved to molecule level. No game exception is needed.
  *
  * Requires: jsonc-eslint-parser configured for *.orb files.
  *
@@ -16,15 +18,13 @@
  *     const blocked = Object.entries(m)
  *       .filter(([k, v]) =>
  *         (v.importPath.includes('/organisms/') || v.importPath.includes('/templates/'))
- *         && v.category !== 'game'
  *         && !['form', 'form-section'].includes(k))
  *       .map(([k]) => k);
  *     console.log(JSON.stringify(blocked, null, 2));
  *   "
  */
 
-// Organism patterns: importPath contains /organisms/, category !== "game"
-// Template patterns: importPath contains /templates/, not game-related
+// Organism patterns: importPath contains /organisms/ or /templates/
 // Excludes: form, form-section (allowed by convention)
 const BLOCKED_PATTERNS = new Set([
   // ── Organisms (non-game, non-form) ────────────────────────────────
@@ -115,7 +115,7 @@ module.exports = {
     docs: {
       description:
         "Behavior schemas must only use atom and molecule patterns. " +
-        "Organisms and templates (except games and form-section) are forbidden.",
+        "Organisms and templates (except canvas game organisms and form-section) are forbidden.",
       category: "Almadar Architecture",
     },
     messages: {
