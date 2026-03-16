@@ -1,6 +1,6 @@
 {
   "name": "@almadar/eslint-plugin",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "private": false,
   "description": "Custom ESLint rules for Almadar component architecture",
   "main": "index.js",
