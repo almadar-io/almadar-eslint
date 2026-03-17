@@ -1,6 +1,6 @@
 {
   "name": "@almadar/eslint-plugin",
-  "version": "2.4.6",
+  "version": "2.5.0",
   "private": false,
   "description": "Custom ESLint rules for Almadar component architecture",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "url": "https://github.com/almadar-io/almadar-eslint.git"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   },
   "scripts": {
