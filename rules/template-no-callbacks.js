@@ -34,6 +34,8 @@ module.exports = {
         ) {
           const propName =
             node.name.type === "JSXIdentifier" ? node.name.name : "unknown";
+          // renderItem is the standard per-item rendering pattern for DataGrid/DataList
+          if (propName === "renderItem") return;
           context.report({
             node,
             messageId: "noCallback",
