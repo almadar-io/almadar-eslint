@@ -8,6 +8,7 @@ const templateNoIteration = require("./rules/template-no-iteration");
 const templateSerializableProps = require("./rules/template-serializable-props");
 const noTypeProp = require("./rules/no-type-prop");
 const noAsAny = require("./rules/no-as-any");
+const noRecordStringUnknown = require("./rules/no-record-string-unknown");
 const noEntityStringType = require("./rules/no-entity-string-type");
 const noImportGenerated = require("./rules/no-import-generated");
 const noUseNavigate = require("./rules/no-use-navigate");
@@ -65,6 +66,7 @@ const plugin = {
     "template-serializable-props": templateSerializableProps,
     "no-type-prop": noTypeProp,
     "no-as-any": noAsAny,
+    "no-record-string-unknown": noRecordStringUnknown,
     "no-entity-string-type": noEntityStringType,
     "no-import-generated": noImportGenerated,
     "no-use-navigate": noUseNavigate,
