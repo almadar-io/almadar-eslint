@@ -23,7 +23,6 @@ module.exports = {
       "usePaginatedEntityList",
       "useEntityListSuspense",
       "useEntitySuspense",
-      "useSelectedEntity",
     ]);
 
     return {
