@@ -8,6 +8,7 @@ const { isAtomOrMolecule, isStoryFile } = require("../utils/helpers");
 const EXCEPTED_FILES = new Set([
   "DataGrid",
   "DataList",
+  "TableView",      // data-iteration table molecule (sibling of DataList/DataGrid)
   "ButtonGroup",    // uses entity as string name for event context
   "FilterGroup",    // uses entity as string name for filter events
   "SearchInput",    // uses entity as string name for search events
