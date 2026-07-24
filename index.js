@@ -30,6 +30,9 @@ const organismRequireEntityRow = require("./rules/organism-require-entity-row");
 // Atom/molecule rules
 const atomMoleculeNoEntityProp = require("./rules/atom-molecule-no-entity-prop");
 
+// Theme rules
+const noHardcodedColors = require("./rules/no-hardcoded-colors");
+
 // Behavior rules
 const behaviorNoOrganisms = require("./rules/behavior-no-organisms");
 
@@ -89,6 +92,9 @@ const plugin = {
     // Atom/molecule rules
     "atom-molecule-no-entity-prop": atomMoleculeNoEntityProp,
 
+    // Theme rules
+    "no-hardcoded-colors": noHardcodedColors,
+
     // Behavior rules
     "behavior-no-organisms": behaviorNoOrganisms,
 
@@ -136,6 +142,7 @@ plugin.configs.recommended = {
     "almadar/no-import-generated": "error",
     "almadar/no-use-navigate": "error",
     "almadar/atom-molecule-no-entity-prop": "error",
+    "almadar/no-hardcoded-colors": "error",
 
     // Warn-level — conventions that should be followed
     "almadar/require-event-bus": "warn",
