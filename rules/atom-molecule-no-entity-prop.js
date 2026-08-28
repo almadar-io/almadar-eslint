@@ -9,6 +9,8 @@ const EXCEPTED_FILES = new Set([
   "DataGrid",
   "DataList",
   "TableView",      // data-iteration table molecule (sibling of DataList/DataGrid)
+  "DocumentPanel",  // single-record document surface; entity supplies the id its commit events carry
+  "DocumentDetails",// the document settings rail; entity supplies the id and property values its commits carry
   "ButtonGroup",    // uses entity as string name for event context
   "FilterGroup",    // uses entity as string name for filter events
   "SearchInput",    // uses entity as string name for search events
