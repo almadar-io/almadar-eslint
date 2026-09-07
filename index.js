@@ -8,6 +8,7 @@ const templateNoIteration = require("./rules/template-no-iteration");
 const templateSerializableProps = require("./rules/template-serializable-props");
 const noTypeProp = require("./rules/no-type-prop");
 const noAsAny = require("./rules/no-as-any");
+const noAsUnknownAs = require("./rules/no-as-unknown-as");
 const noUnknownType = require("./rules/no-unknown-type");
 const noRecordStringUnknown = require("./rules/no-record-string-unknown");
 const noEntityStringType = require("./rules/no-entity-string-type");
@@ -70,6 +71,7 @@ const plugin = {
     "template-serializable-props": templateSerializableProps,
     "no-type-prop": noTypeProp,
     "no-as-any": noAsAny,
+    "no-as-unknown-as": noAsUnknownAs,
     "no-unknown-type": noUnknownType,
     "no-record-string-unknown": noRecordStringUnknown,
     "no-entity-string-type": noEntityStringType,
@@ -136,6 +138,7 @@ plugin.configs.recommended = {
     "almadar/template-serializable-props": "error",
     "almadar/no-type-prop": "error",
     "almadar/no-as-any": "error",
+    "almadar/no-as-unknown-as": "error",
     "almadar/no-unknown-type": "error",
     "almadar/no-record-string-unknown": "error",
     "almadar/no-entity-string-type": "error",

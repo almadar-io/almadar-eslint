@@ -5,7 +5,7 @@ module.exports = {
     type: "problem",
     docs: {
       description:
-        "Disallow Record<string, unknown>, Record<string, any>, and 'as unknown as' double casts. Use @almadar/core types instead.",
+        "Disallow Record<string, unknown> and Record<string, any>. Use @almadar/core types instead. (The 'as unknown as' double-cast check moved to almadar/no-as-unknown-as.)",
       category: "Almadar Architecture",
     },
     messages: {
@@ -13,8 +13,6 @@ module.exports = {
         "Use a typed interface from @almadar/core instead of Record<string, unknown>. Common replacements: OrbitalSchema, Entity, Trait, Field, PatternConfig, Effect, Transition, PayloadField.",
       noRecordStringAny:
         "Record<string, any> is never acceptable. Use Record<string, unknown> at minimum, or a proper @almadar/core type.",
-      noDoubleUnknownCast:
-        "Avoid 'as unknown as' double casts. Use a type guard, define a proper interface, or extend @almadar/core types.",
     },
     schema: [],
   },
@@ -46,18 +44,6 @@ module.exports = {
           if (valueType.type === "TSUnknownKeyword") {
             context.report({ node, messageId: "noRecordStringUnknown" });
           }
-        }
-      },
-
-      // Catch: as unknown as X (double cast)
-      TSAsExpression(node) {
-        if (
-          node.typeAnnotation &&
-          node.typeAnnotation.type === "TSUnknownKeyword" &&
-          node.parent &&
-          node.parent.type === "TSAsExpression"
-        ) {
-          context.report({ node: node.parent, messageId: "noDoubleUnknownCast" });
         }
       },
     };
